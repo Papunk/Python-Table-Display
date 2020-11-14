@@ -19,4 +19,3 @@ class Table:
         for _ in range(num_of_rows):
             self.rows.append(Row(cells_per_row))
 
-

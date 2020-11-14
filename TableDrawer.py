@@ -1,3 +1,5 @@
+from Table import *
+
 # documentation not found (yet)
 
 ASTERISK = '*'
@@ -10,4 +12,6 @@ class TableDrawer:
 
     @staticmethod
     def generateTextTable(table = Table(), separator = '|') -> str:
-        for row in table.table:
+        for row in table.rows:
+            for cell in row.cells:
+                pass
