@@ -14,7 +14,7 @@ class Table:
 
     def __init__(self, numOfRows = 0, cellsPerRow = 0):
         self.table = []
-	for _ in range(numOfRows):
-		self.table.append(Row(cellsPerRow))
+        for _ in range(numOfRows):
+            self.table.append(Row(cellsPerRow))
 
 
