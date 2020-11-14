@@ -6,11 +6,8 @@ LINE = '|'
 DASH = '–'
 DOT = '•'
 
-
-
-
 class TableDrawer:
 
     @staticmethod
-    def generateTextTable(table, separator = '|'):
-        pass
+    def generateTextTable(table = Table(), separator = '|') -> str:
+        for row in table.table:
