@@ -1,7 +1,16 @@
 # documentation not found (yet)
 
+ASTERISK = '*'
+HASH = '#'
+LINE = '|'
+DASH = '–'
+DOT = '•'
+
+
+
+
 class TableDrawer:
 
     @staticmethod
-    def generateTextTable():
+    def generateTextTable(table, separator = '|'):
         pass

@@ -12,9 +12,9 @@ class Row:
 
 class Table:
 
-    def __init__(self, numOfRows = 0, cellsPerRow = 0):
+    def __init__(self, num_of_rows = 0, cells_per_row = 0):
         self.table = []
-        for _ in range(numOfRows):
-            self.table.append(Row(cellsPerRow))
+        for _ in range(num_of_rows):
+            self.table.append(Row(cells_per_row))
 
 
