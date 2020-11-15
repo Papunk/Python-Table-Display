@@ -1,2 +1,2 @@
 # Python-Table-Display
-This program models and displays, and formats tables in text
+This program models, displays, and formats tables in text in highly configurable ways
