@@ -15,7 +15,7 @@ class TableDrawer:
         table_string = ''
         for row in table.rows:
             for cell in row.cells:
-                table_string += col_sep + ' w '
+                table_string += col_sep + ' ' + str(cell.contents) + ' '
             table_string += col_sep + '\n'
             if row.is_header:
                 table_string += (row_sep * (len(row.cells) * 4 + 1)) + '\n' # this needs to be more expandable
@@ -25,6 +25,14 @@ class TableDrawer:
 
 # Testing:
 
-my_table = Table(5, 6)
+matrix = [
+    [2, 3, 1, 6, 3, 8],
+    [1, 1, 4, 7, 9, 1],
+    [0, 6, 0, 0, 2, 1],
+    [1, 2, 4, 1, 1, 4]
+]
+
+my_table = Table.matrixToTable(matrix, True)
+
 
 print(TableDrawer.generateTextTable(my_table))
