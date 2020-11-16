@@ -24,7 +24,7 @@ class Table:
                 self.rows.append(Row(cells_per_row))
     
     @staticmethod
-    def matrixToTable(matrix, has_header = False):
+    def matrixToTable(matrix = [[]], has_header = False):
         table = Table()
         for i in range(len(matrix)):
             if i == 0 and has_header:

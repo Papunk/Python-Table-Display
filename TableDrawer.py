@@ -12,7 +12,11 @@ class TableDrawer:
 
     @staticmethod
     def generateTextTable(table = Table(), col_sep = LINE, row_sep = DASH) -> str:
-        table_string = ''
+        # checks if the table is empty
+        if len(table.rows) == 0 or len(table.rows[0].cells) == 0:
+            return str()
+        # creates string
+        table_string = str()
         for row in table.rows:
             for cell in row.cells:
                 table_string += col_sep + ' ' + str(cell.contents) + ' '
@@ -32,7 +36,7 @@ matrix = [
     [1, 2, 4, 1, 1, 4]
 ]
 
-my_table = Table.matrixToTable(matrix, True)
+my_table = Table.matrixToTable()
 
 
 print(TableDrawer.generateTextTable(my_table))
