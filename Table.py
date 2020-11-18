@@ -31,11 +31,16 @@ class Table:
             else:
                 self.rows.append(Row(cells_per_row))
     
-    def getLongestElement(self):
-        pass
+    def getLongestElement(self) -> int:
+        longest = 0
+        for row in self.rows:
+            for cell in row.cells:
+                if len(str(cell.contents)) > longest:
+                    longest = len(str(cell.contents))
+        return longest
 
     @staticmethod
-    def matrixToTable(matrix = [[]], has_header = False):
+    def matrixToTable(matrix = [[]], has_header = False) -> Table():
         table = Table()
         for i in range(len(matrix)):
             if i == 0 and has_header:
