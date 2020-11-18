@@ -11,6 +11,14 @@ class Row:
         self.cells = []
         for _ in range(num_of_cells):
             self.cells.append(Cell())
+
+    @ staticmethod
+    def listToRow(lst = [], is_header = False):
+        row = Row()
+        row.is_header = is_header
+        for elem in lst:
+            row.cells.append(elem)
+        return row
     
 
 class Table:
