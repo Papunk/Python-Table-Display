@@ -31,7 +31,7 @@ class Table:
             else:
                 self.rows.append(Row(cells_per_row))
     
-    def getLongestElement(self) -> int:
+    def longestElement(self) -> int:
         longest = 0
         for row in self.rows:
             for cell in row.cells:
@@ -40,7 +40,7 @@ class Table:
         return longest
 
     @staticmethod
-    def matrixToTable(matrix = [[]], has_header = False) -> Table():
+    def matrixToTable(matrix = [[]], has_header = False):
         table = Table()
         for i in range(len(matrix)):
             if i == 0 and has_header:
