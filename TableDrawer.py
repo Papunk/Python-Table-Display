@@ -25,6 +25,10 @@ class TableDrawer:
                 table_string += (row_sep * (len(row.cells) * 4 + 1)) + '\n' # this needs to be more expandable
         return table_string
 
+# TODO 
+# make the tableDrawer adjust width depending on largest element
+# add margin justification
+# add method to Table class to determine the length of the longest element
 
 
 # Testing:
