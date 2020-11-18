@@ -31,6 +31,9 @@ class Table:
             else:
                 self.rows.append(Row(cells_per_row))
     
+    def getLongestElement(self):
+        pass
+
     @staticmethod
     def matrixToTable(matrix = [[]], has_header = False):
         table = Table()
