@@ -27,7 +27,7 @@ class TableDrawer:
                 table_string += col_sep + textifyCell(cell.contents, longest_elememt)
             table_string += col_sep + '\n'
             if row.is_header:
-                table_string += (row_sep * (len(row.cells) * 4 + 1)) + '\n' # this needs to be more expandable
+                table_string += (row_sep * ((longest_elememt + 3) * (len(row.cells)) + 1)) + '\n'
         return table_string
 
 # TODO 
@@ -37,12 +37,12 @@ class TableDrawer:
 # Testing:
 
 matrix = [
-    [211345, 3, 1, 623, 3, 8],
-    [1, 1, 4, 7, 9, 1],
+    [1764773, 3, 1, 623, 31, 8],
+    [142, 1, 4, 7, 9, 1],
     [0, 16, 0, 0, 2, 1],
-    [1, 2, 4, 1, 1, 4]
+    [11, 2567, 4, 1, 1, 4]
 ]
 
-my_table = Table.matrixToTable(matrix)
+my_table = Table.matrixToTable(matrix, has_header=True)
 
 print(TableDrawer.generateTextTable(my_table))
