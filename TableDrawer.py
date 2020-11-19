@@ -9,19 +9,28 @@ LINE = '|'
 DASH = '–'
 DOT = '•'
 
-class TableDrawer:
 
-    class Just(Enum):
-        left = 0
-        right = 1
+class Just(Enum):
+        right = 0
+        left = 1
         center = 2
 
-        
-    @staticmethod
-    def generateTextTable(table = Table(), col_sep = LINE, row_sep = DASH) -> str:
 
-        def textifyCell(element, longest_element) -> str: # add justification
-            return ' ' + (' ' * (longest_element - len(str(element)))) + str(element) + ' '
+class TableDrawer:
+
+    @staticmethod
+    def generateTextTable(table = Table(), col_sep = LINE, row_sep = DASH, justification = Just.right) -> str:
+
+        def textifyCell(element, longest_element, justification) -> str: # add justification
+            s = ' '
+            if justification is Just.right:
+                s += (' ' * (longest_element - len(str(element)))) + str(element)
+            elif justification is Just.left:
+                s += str(element) + (' ' * (longest_element - len(str(element))))
+            elif justification is Just.center:
+                s += (' ' * ((longest_element - len(str(element)))//2 + (1 if len(str(element)) % 2 == 0 else 0 ))) +str(element) + (' '  * ((longest_element - len(str(element)))//2))
+            s += ' '
+            return s
 
         # checks if the table is empty
         if len(table.rows) == 0 or len(table.rows[0].cells) == 0:
@@ -31,7 +40,7 @@ class TableDrawer:
         table_string = str()
         for row in table.rows:
             for cell in row.cells:
-                table_string += col_sep + textifyCell(cell.contents, longest_elememt)
+                table_string += col_sep + textifyCell(cell.contents, longest_elememt, justification)
             table_string += col_sep + '\n'
             if row.is_header:
                 table_string += (row_sep * ((longest_elememt + 3) * (len(row.cells)) + 1)) + '\n'
@@ -51,4 +60,4 @@ matrix = [
 
 my_table = Table.matrixToTable(matrix, has_header=True)
 
-print(TableDrawer.generateTextTable(my_table))
+print(TableDrawer.generateTextTable(my_table, justification=Just.center))
