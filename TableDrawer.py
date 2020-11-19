@@ -47,12 +47,12 @@ class TableDrawer:
         return table_string
 
 # TODO 
-# add margin justification
+# fix bug where if longest element is even, center justified tables get messed up
 
 # Testing:
 
 matrix = [
-    [1764773, 3, 1, 623, 31, 8],
+    [176473, 3, 1, 623, 31, 8],
     [142, 1, 4, 7, 9, 1],
     [0, 16, 0, 0, 2, 1],
     [11, 2567, 4, 1, 1, 4]
