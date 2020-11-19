@@ -1,4 +1,5 @@
 from Table import *
+from enum import Enum
 
 # Error 404 documentation not found (yet)
 
@@ -10,6 +11,12 @@ DOT = '•'
 
 class TableDrawer:
 
+    class Just(Enum):
+        left = 0
+        right = 1
+        center = 2
+
+        
     @staticmethod
     def generateTextTable(table = Table(), col_sep = LINE, row_sep = DASH) -> str:
 
@@ -31,7 +38,6 @@ class TableDrawer:
         return table_string
 
 # TODO 
-# make the tableDrawer adjust width depending on largest element
 # add margin justification
 
 # Testing:
