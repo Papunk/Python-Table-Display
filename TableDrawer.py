@@ -6,6 +6,8 @@ from enum import Enum
 ASTERISK = '*'
 HASH = '#'
 LINE = '|'
+F_SLASH = '/'
+B_SLASH = '\\'
 DASH = '–'
 DOT = '•'
 
@@ -56,10 +58,10 @@ class TableDrawer:
 matrix = [
     [122314, 3, 1, 623, 31, 8],
     [142, 1, 124, 7, 9, 1],
-    [0, 16, 0, 0, 2, 1],
+    [0, 16, 0, 122314, 2, 1],
     [11, 2517, 4, 1, 1, 4]
 ]
 
 my_table = Table.matrixToTable(matrix, has_header=True)
 
-print(TableDrawer.generateTextTable(my_table, justification=Just.center))
+print(TableDrawer.generateTextTable(my_table, col_sep=LINE, row_sep=F_SLASH, justification=Just.center))
