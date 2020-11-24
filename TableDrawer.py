@@ -1,7 +1,7 @@
 from Table import *
 from enum import Enum
 
-# Error 404 documentation not found (yet)
+
 
 ASTERISK = '*'
 HASH = '#'
@@ -13,6 +13,10 @@ DOT = '•'
 
 
 class Just(Enum):
+    '''
+    Desc:
+        Defines justification for TableDrawer
+    '''
         right = 0
         left = 1
         center = 2
@@ -22,8 +26,28 @@ class TableDrawer:
 
     @staticmethod
     def generateTextTable(table = Table(), col_sep = LINE, row_sep = DASH, justification = Just.right) -> str:
+        '''
+        Desc:
+            Renders a Table object as text
 
-        def textifyCell(element, longest_element_length, justification) -> str: # add justification
+        Parameters:
+            table - the Table object to be rendered
+            col_sep - the string to be used when separating columns
+            row_sep - the string to be used when separating rows
+            justification - the justification of the elements in the cell
+        '''
+
+        def textifyCell(element, longest_element_length, justification) -> str:
+            '''
+            Desc:
+                Returns a text representation of a cell
+            
+            Parameters:
+                elem - the value to be rendered in the cell
+                longest_element_length - length of the longest element in the table
+                justification - the justification of the elements in the cell
+            '''
+
             s = ' '
             element = str(element)
             mult = (longest_element_length - len(element))
@@ -54,14 +78,14 @@ class TableDrawer:
                 table_string += (row_sep * ((longest_elememt_length + 3) * (len(row.cells)) + 1)) + '\n' ## needs tweaking
         return table_string
 
+# TESTING:
+# matrix = [
+#     [122314, 3, 1, 623, 31, 8],
+#     [142, 1, 124, 7, 9, 1],
+#     [0, 16, 0, 122314, 2, 1],
+#     [11, 2517, 4, 1, 1, 4]
+# ]
 
-matrix = [
-    [122314, 3, 1, 623, 31, 8],
-    [142, 1, 124, 7, 9, 1],
-    [0, 16, 0, 122314, 2, 1],
-    [11, 2517, 4, 1, 1, 4]
-]
+# my_table = Table.matrixToTable(matrix, has_header=True)
 
-my_table = Table.matrixToTable(matrix, has_header=True)
-
-print(TableDrawer.generateTextTable(my_table, col_sep=LINE, row_sep=F_SLASH, justification=Just.center))
+# print(TableDrawer.generateTextTable(my_table, col_sep=LINE, row_sep=F_SLASH, justification=Just.center))
