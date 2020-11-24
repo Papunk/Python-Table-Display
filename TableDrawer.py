@@ -1,7 +1,7 @@
 from Table import *
 from enum import Enum
 
-
+# Some values:
 
 ASTERISK = '*'
 HASH = '#'
@@ -15,14 +15,18 @@ DOT = '•'
 class Just(Enum):
     '''
     Desc:
-        Defines justification for TableDrawer
+        Defines three justifications for cells in TableDrawer
     '''
-        right = 0
-        left = 1
-        center = 2
+    right = 0
+    left = 1
+    center = 2
 
 
 class TableDrawer:
+    '''
+    Desc:
+        This class contains several methods to generate viewable tables from a Table object
+    '''
 
     @staticmethod
     def generateTextTable(table = Table(), col_sep = LINE, row_sep = DASH, justification = Just.right) -> str:
