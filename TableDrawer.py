@@ -82,7 +82,8 @@ class TableDrawer:
                 table_string += (row_sep * ((longest_elememt_length + 3) * (len(row.cells)) + 1)) + '\n' ## needs tweaking
         return table_string
 
-# TESTING:
+ 
+
 # matrix = [
 #     [122314, 3, 1, 623, 31, 8],
 #     [142, 1, 124, 7, 9, 1],
@@ -92,4 +93,6 @@ class TableDrawer:
 
 # my_table = Table.matrixToTable(matrix, has_header=True)
 
-# print(TableDrawer.generateTextTable(my_table, col_sep=LINE, row_sep=F_SLASH, justification=Just.center))
+# print(TableDrawer.generateTextTable(my_table, col_sep=LINE, row_sep=DOT, justification=Just.center))
+
+# print(my_table.asMatrix())

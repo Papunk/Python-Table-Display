@@ -56,7 +56,7 @@ class Table:
         return longest
 
     @staticmethod
-    def matrixToTable(matrix = [[]], has_header = False) -> Table():
+    def matrixToTable(matrix = [[]], has_header = False):
         '''
         Desc:
             Returns a Table from a 2D array
@@ -75,5 +75,20 @@ class Table:
                 row.cells.append(Cell(elem))
             table.rows.append(row)
         return table
+
+    
+    def asMatrix(self):
+        '''
+        Desc:
+        Turns the internal table as a 2D array
+        '''
+        matrix = []
+        for row in self.rows:
+            lst = []
+            for cell in row.cells:
+                lst.append(cell.contents)
+            matrix.append(lst)
+        return matrix
+
         
 
